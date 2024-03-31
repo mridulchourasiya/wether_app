@@ -1,6 +1,6 @@
+import AirPollution from "./Components/AirPollution/AirPollution";
 import Navbar from "./Components/Navbar";
 import Tempreature from "./Components/Temperature/Tempreature";
-
 
 export default function Home() {
   return (
@@ -12,7 +12,11 @@ export default function Home() {
           <Tempreature />
         </div>
         {/* Right section */}
-        <div className="flex flex-col"></div>
+        <div className="flex flex-col w-full">
+          <div className="instruments grid h-full gap-4 col-span-full sm-2:col-span-2 lg:grid-col-3 xl:grid-col-4">
+            <AirPollution />
+          </div>
+        </div>
       </div>
     </main>
   );
