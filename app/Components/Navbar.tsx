@@ -21,7 +21,7 @@ function Navbar() {
         <div className="btn-group flex items-center gap-2">
           <ThemeDropdown />
           <Button
-            className="search-code flex items-center gap-2 border rounded"
+            className="search-code-btn flex items-center gap-2 "
             onClick={() => {
               router.push("https://github.com/mridulchourasiya/wether_app");
             }}

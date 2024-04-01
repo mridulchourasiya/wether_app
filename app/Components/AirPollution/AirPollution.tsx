@@ -2,7 +2,6 @@
 import { useGlobalContext } from "@/app/context/globalContext";
 import { thermo } from "@/app/utils/icons";
 import { airQualityIndexText } from "@/app/utils/misc";
-;
 import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Item } from "@radix-ui/react-dropdown-menu";
@@ -25,27 +24,24 @@ function AirPollution() {
     );
   }
 
- const airQualityIndex = airQuality.list[0].main.aqi *10;
- console.log(airQualityIndex,"airQualityIndex");
- 
+  const airQualityIndex = airQuality.list[0].main.aqi * 10;
+  console.log(airQualityIndex, "airQualityIndex");
 
- 
- const filteredIndex = airQualityIndexText.find((item) => {
-    return item.rating === airQualityIndex
- })
- console.log(filteredIndex,"filteredIndex");
- 
+  const filteredIndex = airQualityIndexText.find((item) => {
+    return item.rating === airQualityIndex;
+  });
+  console.log(filteredIndex, "filteredIndex");
 
   return (
     <div
-      className="air-pollution col-span-full sm-2:col-span-2 pt-6 px-4 h-[12rem]
-  border rounded-lg flex flex-col gap-8 dark:bg-dark-grey shadow-sm dark:shadow-none"
+      className="air-pollution pt-6 px-4 h-[12rem] border rounded-lg flex flex-col gap-8
+      dark:bg-dark-grey shadow-sm dark:shadow-none col-span-full sm-2:col-span-2 md:col-span-2 xl:col-span-2"
     >
       <h2 className="flex items-center gap-2 font-medium">
         {thermo}Air Pollution
       </h2>
       <Progress value={airQualityIndex} max={100} className="progress" />
-      <p>Air Quality</p>
+      <p>Air Quality is {filteredIndex?.description}.</p>
     </div>
   );
 }
